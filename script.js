@@ -1,3 +1,19 @@
+function capturarValores(event) {
+
+    event.preventDefault();
+
+    const valorInput1 = document.getElementById('email').value;
+
+
+    const valorInput2 = document.getElementById('name').value;
+
+    var valorArmazenado1 = valorInput1;
+    var valorArmazenado2 = valorInput2;
+
+    console.log("Valor 1 armazenado:", valorArmazenado1);
+    console.log("Valor 2 armazenado:", valorArmazenado2);
+}
+
 const nodemailer = require("nodemailer")
 
 let transporter = nodemailer.createTransport({
@@ -10,8 +26,8 @@ let transporter = nodemailer.createTransport({
 
 let options = {
     from: 'wyneagenciamktdigital@gmail.com',
-    to: 'hibbeln82@gmail.com', //VARIAVEL
-    subject: 'Olá ....',
+    to: valorInput1,
+    subject: 'Olá' + valorInput2,
     text: 'Oi tudo bem com você ...? Espero que sim, você entrou em contato com a nossa agência de marketing digital!'
 }
 
@@ -27,4 +43,4 @@ const sendEmail = async() => {
     }
 }
 
-sendEmail()
+   sendEmail()
